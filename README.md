@@ -4,9 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run the next command to run the FE:
 
-### `npm start`
+### `npm run start`
+
+In the project directory > api, you can run the next command to run the BE:
+
+### `node index.js`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

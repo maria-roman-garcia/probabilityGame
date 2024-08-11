@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 // PAGES
 import App from './App';
-import ErrorPage from "./pages/ErrorPage";
+import ErrorPage from "./pages/errorPage/ErrorPage";
 import SquaresPage from './pages/squarePage/SquaresPage';
 
 // ROUTES
