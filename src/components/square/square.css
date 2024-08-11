@@ -1,0 +1,122 @@
+.square__container {
+    padding: 1rem;
+    margin: 1rem;
+    height: -webkit-fill-available;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.square_target__container {
+    padding: 1rem;
+    margin: 1rem;
+    width: fit-content;
+    aspect-ratio : 1 / 1;
+}
+
+.square__container:hover {
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+.square__item {
+    position: relative;
+}
+
+.square__dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+/* SELECTED STATUS */
+.is_selected {
+background-color: rgb(231, 230, 230);
+}
+
+.is_not_selected {
+    opacity: 0.2;
+}
+
+/* SIZES */
+.size__large {
+    width: 100px;
+    height: 100px;
+}
+
+.size__small {
+    width: 50px;
+    height: 50px;
+}
+
+.size__table_small {
+    width: 25px;
+    height: 25px;
+}
+
+.size__table_large {
+    width: 35px;
+    height: 35px;
+}
+
+/* COLORS */
+.color__green {
+    background-color: rgb(6, 120, 10);
+}
+
+.color__blue {
+    background-color: rgb(31, 110, 230);
+}
+
+.color__orange {
+    background-color: rgb(213, 143, 12);
+}
+
+/* GRID */
+.grid {
+    width: calc(100vw / 7);
+    aspect-ratio : 1 / 1;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .grid {
+        width: calc(100vw / 1);
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .grid {
+        width: calc(100vw / 2);
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .grid {
+        width: calc(100vw / 4);
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .grid {
+        width: calc(100vw / 6);
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .grid {
+        width: calc(100vw / 7);
+    }
+}

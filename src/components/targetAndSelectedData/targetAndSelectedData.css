@@ -1,0 +1,13 @@
+.card_border {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.targetAndPercentage_match {
+    background-color: rgba(2, 255, 10, 0.5);
+}
+
+.targetAndPercentage_dont_match {
+    background-color: rgba(255, 47, 0, 0.5);
+}
