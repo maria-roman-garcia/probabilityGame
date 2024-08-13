@@ -5,6 +5,11 @@ import { SquareObj, SquareObjCommonInfo, SquareObjTarget } from '../../interface
 import Square from '../../components/square/Square';
 import './SquarePage.css';
 import TargetAndSelectedData from '../../components/targetAndSelectedData/TargetAndSelectedData';
+import Button from 'react-bootstrap/Button';
+
+
+type actionType = "add" | "remove";
+interface actions {action: actionType, id: number}
 
 function SquaresPage() {
 
@@ -12,6 +17,9 @@ function SquaresPage() {
     const [targetSelected, setTargetSelected] = useState<SquareObjTarget | null>(null);
     const [selectedSquares, setSelectedSquares] = useState<number[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+
+    const [actionsStorage, setActionsStorage] = useState<actions[]>([]);
+
 
     useEffect(() => {
         // once the component is mounted
@@ -38,13 +46,34 @@ function SquaresPage() {
             const squareToRemove = selectedSquares.map(e => e).indexOf(squareSelectedId);
             copyList.splice(squareToRemove, 1);
             setSelectedSquares(copyList);
+            //Action adding
+            setActionsStorage([...actionsStorage, {action: "add", id:squareSelectedId }]);
         } else {
             setSelectedSquares([...copyList, squareSelectedId]);
+            //Remove adding
+            setActionsStorage([...actionsStorage, {action: "remove", id:squareSelectedId }]);
         }
+    }
+
+    const undoRedoAction = () => {
+        if(actionsStorage.length === 0){
+            return;
+        }
+        const actionToDo = actionsStorage[actionsStorage.length-1];
+        
+        if(actionToDo.action === "add"){
+            setSelectedSquares([...selectedSquares, actionToDo.id])
+        } else {
+            const newArr = selectedSquares.slice(0, -1);
+            setSelectedSquares(newArr);
+        }
+        setActionsStorage(actionsStorage.slice(0, -1));
     }
 
     return (
         <div>
+            <Button variant="outline-primary" onClick={()=> undoRedoAction()}>Call Action undo/redo</Button>
+
             {!isLoading && targetSelected
                 ? <TargetAndSelectedData data={data}
                     targetSelected={targetSelected}
